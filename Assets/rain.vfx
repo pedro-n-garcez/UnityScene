@@ -186,7 +186,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614732}
   - {fileID: 8926484042661614569}
   - {fileID: 8926484042661614580}
-  m_UIPosition: {x: 602, y: -42}
+  m_UIPosition: {x: 605, y: -36}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614742}
-  m_UIPosition: {x: 644, y: 583}
+  m_UIPosition: {x: 644, y: 584}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -1271,7 +1271,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":-0.01874847710132599,"value":0.2591845989227295,"inTangent":0.36218899488449099,"outTangent":0.36218899488449099,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":1.03125,"value":0.6394824981689453,"inTangent":0.36218899488449099,"outTangent":0.36218899488449099,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":-0.01874847710132599,"value":0.2591845989227295,"inTangent":0.18592876195907594,"outTangent":0.18592876195907594,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":0.9875030517578125,"value":0.4462757110595703,"inTangent":0.18592876195907594,"outTangent":0.18592876195907594,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -1674,7 +1674,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.0,"y":-60.900001525878909,"z":0.0}}'
+      m_SerializableObject: '{"vector":{"x":0.0,"y":-260.8999938964844,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: Force
