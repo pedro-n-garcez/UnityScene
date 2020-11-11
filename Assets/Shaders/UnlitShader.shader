@@ -4,15 +4,15 @@
     {
         _MainTex ("Texture", 2D) = "gray" {}
         _TintColor("Tint Color", Color) = (1,1,1,1)
-        _Transparency("Transparency",Range(0.0,1.0)) = 0.25
     }
     SubShader
     {
         Tags { "Queue"="Transparent" "RenderType"="Transparent" }
         LOD 100
+        Blend One One //additive blend mode
 
-        ZWrite Off
-        Blend SrcAlpha OneMinusSrcAlpha
+        ZWrite Off //disables depth buffer write
+        Cull Back //not rendering background
 
         Pass
         {
