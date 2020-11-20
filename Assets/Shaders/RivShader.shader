@@ -5,6 +5,11 @@
         _MainTex ("Texture", 2D) = "gray" {}
         _TintColor("Tint Color", Color) = (1,1,1,1)
         _Transparency("Transparency",Range(0.0,1.0)) = 0.25
+
+        _Speed("Speed", float) = 0.5
+        _Wavelength("Wavelength",float) = 10
+        //_Amplitude("Amplitude", float) = 1
+        _Steepness("Steepness",Range(0,1)) = 0.5
     }
     SubShader
     {
@@ -19,8 +24,6 @@
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            // make fog work
-            #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
 
@@ -33,7 +36,6 @@
             struct v2f
             {
                 float2 uv : TEXCOORD0;
-                UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
 
@@ -42,12 +44,26 @@
             float4 _TintColor;
             float _Transparency;
 
+            float _Speed;
+            //float _Amplitude;
+            float _Steepness;
+            float _Wavelength;
+
+            //simple water simulation based on https://catlikecoding.com/unity/tutorials/flow/waves/
             v2f vert (appdata v)
             {
+            	float3 pos = v.vertex.xyz;
+                float k = 2 * UNITY_PI / _Wavelength;
+                float f = k * pos.x - _Speed * _Time.y;
+                float a = _Steepness / k;
+
+                pos.x += a * cos(f);
+                pos.y = a * sin(f);
+                v.vertex.xyz = pos;
+
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
@@ -56,11 +72,10 @@
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv) + _TintColor;
                 col.a = _Transparency;
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
             }
             ENDCG
         }
     }
+    FallBack "Diffuse"
 }
